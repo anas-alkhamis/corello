@@ -45,7 +45,23 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+.container {
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+  border: gainsboro solid 1px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  gap: 4px;
+  margin: 8px 0;
+}
+.form-input {
+  padding: 12px 6px;
+  width: 50%;
+}
 .card {
   padding: 2em;
 }

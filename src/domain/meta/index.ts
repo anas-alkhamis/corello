@@ -1,2 +1,5 @@
-export type {ICar} from './car'
-export type {IUser} from './user'
+export type { IUser } from './i-user'
+export type { IProduct } from './i-product'
+export type { ISupplier } from './i-supplier'
+export type { ICategory } from './i-category'
+export type { IFeature } from './i-feature'
