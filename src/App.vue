@@ -1,10 +1,11 @@
 <template>
-  <Form />
+  <LoginForm />
 </template>
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 
 const Form = defineAsyncComponent(() => import('./components/form.vue'))
+const LoginForm = defineAsyncComponent(() => import('./components/login-form.vue'))
 </script>
 <!-- cant pass user object as instance of user to the product.owner -->
 <!-- on the first render return it runs validation before any changes -->
