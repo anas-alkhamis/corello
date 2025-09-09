@@ -6,6 +6,7 @@ import { Category } from './category'
 import { Supplier } from './supplier'
 import type { IProduct, IUser, ICategory, ISupplier, IFeature } from '../meta'
 import { type IValidated, v, Validator, validatorFactory } from 'tamam'
+import type { DeliveryTypeEnum } from '../meta/enums/delivery-type'
 
 const required = () =>
   validatorFactory({
@@ -65,10 +66,11 @@ class Product extends DtoBase<Product> implements IValidated<IProduct> {
   @priceValidator()
   price: number = 0
 
+  deliveryType!: DeliveryTypeEnum
   @moreThanOrEqual(2)
   features: IFeature[] = []
   description?: string
-
+  digitalCode?: string
   // get user() {
   //   return this.owner
   // }

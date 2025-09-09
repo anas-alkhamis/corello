@@ -1,3 +1,4 @@
+import type { DeliveryTypeEnum } from './enums/delivery-type'
 import type { ProductTypeEnum } from './enums/product-type'
 import type { ICategory } from './i-category'
 import type { ISupplier } from './i-supplier'
@@ -10,5 +11,7 @@ export interface IProduct {
   type: ProductTypeEnum
   quantity: number
   price: number
+  deliveryType: DeliveryTypeEnum
   description?: string
+  digitalCode?: string
 }

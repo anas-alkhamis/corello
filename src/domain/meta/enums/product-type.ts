@@ -2,5 +2,6 @@ export enum ProductTypeEnum {
   None = '',
   Car = 'Car',
   Mobile = 'Mobile',
-  Laptop = 'Laptop'
+  Laptop = 'Laptop',
+  Online = 'Online'
 }
