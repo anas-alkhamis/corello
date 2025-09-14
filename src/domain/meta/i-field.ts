@@ -7,7 +7,7 @@ interface IField {
   placeholder: Record<string, string>
   description: Record<string, string>
   required: boolean
-  dataService: IDataService
+  dataService: IDataService | null
 }
 
 interface IDataService {

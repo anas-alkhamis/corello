@@ -23,49 +23,38 @@ import { FieldsSchema } from '../domain/def/field-schema'
 import { FieldTypeEnum } from '../domain/meta/enums/field-type'
 
 //-------------------------------------------------------------------------------
+
 const schema = new FieldsSchema()
-schema.addField('password', {
-  type: FieldTypeEnum.Password,
-  path: 'password',
-  placeholder: { en: 'Enter password', ar: 'ادخل وحدة' },
-  label: { en: 'Password', ar: 'كلمة السر' },
-  description: { en: 'user password', ar: 'كلمة سر المسنخدم المستخدم' },
-  required: true
-})
-schema.addField('groups', {
-  type: FieldTypeEnum.DropDownAsync,
-  path: 'groups',
-  placeholder: {
-    en: 'Select groups',
-    ar: 'حدد المجموعات'
-  },
-  label: {
-    en: 'Groups',
-    ar: 'المجموعات'
-  },
-  description: {
-    en: 'user groups',
-    ar: 'مجموعات المستخدم'
-  },
-  required: true,
-  dataService: {
-    uniquePath: 'groups[i].id',
-    limitPerRequest: 5,
-    defaultOffset: 0
-  }
-})
-schema.addField('unit', {
-  type: FieldTypeEnum.DropDownAsync,
-  path: 'unit',
-  placeholder: { en: 'Select Unit', ar: 'حدد وحدة' },
-  label: { en: 'Unit', ar: 'وحدة' },
-  description: { en: 'user unit', ar: 'وحدة المستخدم' },
-  required: true,
-  dataService: {
-    uniquePath: 'unit.id',
-    limitPerRequest: 10,
-    defaultOffset: 0
-  }
-})
-console.log(schema.getResult())
+
+schema
+  .type(FieldTypeEnum.DropDownAsync)
+  .path('groups')
+  .placeholder({ en: 'Select groups', ar: 'حدد المجموعات' })
+  .label({ en: 'Groups', ar: 'المجموعات' })
+  .description({ en: 'user groups', ar: 'مجموعات المستخدم' })
+  .required(true)
+  .dataService('groups[i].id', 5, 0)
+  .build()
+
+schema
+  .type(FieldTypeEnum.Password)
+  .path('password')
+  .placeholder({ en: 'Enter password', ar: 'ادخل وحدة' })
+  .label({ en: 'Password', ar: 'كلمة السر' })
+  .description({ en: 'user password', ar: 'كلمة سر المسنخدم المستخدم' })
+  .required(false)
+  .build()
+
+schema
+  .type(FieldTypeEnum.DropDownAsync)
+  .path('unit')
+  .placeholder({ en: 'Select Unit', ar: 'حدد وحدة' })
+  .label({ en: 'Unit', ar: 'وحدة' })
+  .description({ en: 'user unit', ar: 'وحدة المستخدم' })
+  .required(false)
+  .dataService('unit.id', 10, 0)
+  .build()
+
+const result = schema.getResult()
+console.log(result)
 </script>

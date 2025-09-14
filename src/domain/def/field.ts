@@ -8,7 +8,7 @@ class Field implements IField {
   placeholder: Record<string, string>
   description: Record<string, string>
   required: boolean
-  dataService: IDataService
+  dataService: IDataService | null
 
   constructor({ type, path, label = defaultTranslation, placeholder = defaultTranslation, description = defaultTranslation, required = false, dataService }: Partial<IField>) {
     this.type = type!
@@ -17,7 +17,7 @@ class Field implements IField {
     this.placeholder = placeholder
     this.description = description
     this.required = required
-    this.dataService = new DataService(dataService!)
+    this.dataService = dataService ? new DataService(dataService!) : null
   }
 }
 class DataService implements IDataService {
