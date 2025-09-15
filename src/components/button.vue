@@ -1,7 +1,9 @@
 <template>
-  <button @click="() => onSubmit?.()">{{ isProcessing ? (title ? title : 'Loading..') : label ? label : 'Submit' }}</button>
+  <button @click="() => onClick?.()" :type>{{ isProcessing ? (title ? title : 'Loading..') : label ? label : 'Submit' }}</button>
 </template>
 
 <script setup lang="ts">
-defineProps({ onSubmit: Function, isProcessing: Boolean, title: String, label: String })
+import type { PropType } from 'vue'
+
+defineProps({ onClick: Function, isProcessing: Boolean, title: String, label: String, type: String as PropType<'button' | 'submit' | 'reset' | undefined> })
 </script>

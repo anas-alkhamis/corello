@@ -23,9 +23,9 @@
 </template>
 
 <script setup lang="ts">
-import { FieldsSchema } from '../domain/def/field-schema'
+import { FieldsSchema } from '../domain/def/builders/field-schema'
 import { FieldTypeEnum } from '../domain/meta/enums/field-type'
-import { FieldFactory } from './def/field-factory'
+import { FieldFactory } from '../domain/def/builders/field-factory'
 //-------------------------------------------------------------------------------
 
 const schema = new FieldsSchema()

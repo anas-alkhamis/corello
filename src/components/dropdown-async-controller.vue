@@ -1,10 +1,13 @@
 <template>
-  <div>dropdown-async-controller</div>
-  {{ props.path }}
+  <div>dropdown-async-controller-{{ model }}</div>
+  {{ path }}
+  {{ model }}
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { props as selectedProps } from './def/field-props'
-const props = defineProps(selectedProps)
+import type { IField } from '../domain/meta/builder/i-field'
+defineProps<IField>()
+
+const model = defineModel()
 </script>

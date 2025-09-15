@@ -1,7 +1,7 @@
 import { Dto, DtoBase } from 'corello'
 import { reactive } from 'vue'
 import { type IValidated, v, Validator, validatorFactory } from 'tamam'
-import type { IUser } from '../meta'
+import type { ICategory, IUser } from '../meta'
 
 const required = () =>
   validatorFactory({
@@ -78,9 +78,15 @@ class User extends DtoBase<User> implements IValidated<IUser> {
   @password(8, true)
   password!: string
 
+  groups: string[] = []
+  unit!: string
+
+  isAdmin!: boolean
   email?: string
   phone?: string
   address?: string
+
+  category!: ICategory
   validate(props?: (keyof IUser)[]): Promise<Record<keyof IUser, { value: any; result: any }>> {
     return this.validate(props)
   }

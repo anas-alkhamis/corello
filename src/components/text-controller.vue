@@ -1,9 +1,17 @@
 <template>
-  <div>text-controller</div>
-  {{ props.path }}
+  <div>
+    <label :for="path">
+      <span v-if="label">{{ label['en'] }}</span>
+      <input :id="path" class="form-input" type="text" :placeholder="placeholder['en']" v-model="model" />
+    </label>
+  </div>
 </template>
-<script setup lang="ts">
-import { defineProps } from 'vue'
-import { props as selectedProps } from './def/field-props'
-const props = defineProps(selectedProps)
+
+<script setup lang="ts" generic="T">
+import { defineAsyncComponent } from 'vue'
+import type { IField } from '../domain/meta/builder/i-field'
+
+defineProps<IField & { validators: T }>()
+const model = defineModel()
+const Message = defineAsyncComponent(() => import('./message.vue'))
 </script>

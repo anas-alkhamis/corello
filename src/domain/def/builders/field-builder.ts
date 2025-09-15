@@ -1,6 +1,6 @@
-import type { FieldTypeEnum } from '../meta/enums/field-type'
-import type { IDataService, IField } from '../meta/i-field'
-import type { IDataServiceBuilder, IFieldBuilder } from '../meta/i-field-builder'
+import type { IDataService, IField } from '../../meta/builder/i-field'
+import type { IDataServiceBuilder, IFieldBuilder } from '../../meta/builder/i-field-builder'
+import type { FieldTypeEnum } from '../../meta/enums/field-type'
 
 class DataServiceBuilder implements IDataServiceBuilder {
   _uniquePath!: string

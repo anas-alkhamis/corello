@@ -1,4 +1,4 @@
-import type { FieldTypeEnum } from './enums/field-type'
+import type { FieldTypeEnum } from '../enums/field-type'
 import type { IField } from './i-field'
 import type { IFieldBuilder } from './i-field-builder'
 

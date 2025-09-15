@@ -1,4 +1,4 @@
-import type { FieldTypeEnum } from './enums/field-type'
+import type { FieldTypeEnum } from "../enums/field-type"
 
 interface IField {
   type: FieldTypeEnum

@@ -1,9 +1,9 @@
 <template>
   <div>radio-group-controller</div>
-  {{ props.path }}
+  {{ path }}
 </template>
 <script setup lang="ts">
 import { defineProps } from 'vue'
-import { props as selectedProps } from './def/field-props'
-const props = defineProps(selectedProps)
+import type { IField } from '../domain/meta/builder/i-field'
+defineProps<IField>()
 </script>
