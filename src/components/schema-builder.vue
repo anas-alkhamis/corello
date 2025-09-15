@@ -1,4 +1,8 @@
 <template>
+  <div v-for="value in schema.getResult()">
+    <component :is="field.getField(value.type)" v-bind="value" />
+  </div>
+
   <pre
     style="
       background-color: #0f0f0f;
@@ -21,10 +25,11 @@
 <script setup lang="ts">
 import { FieldsSchema } from '../domain/def/field-schema'
 import { FieldTypeEnum } from '../domain/meta/enums/field-type'
-
+import { FieldFactory } from './def/field-factory'
 //-------------------------------------------------------------------------------
 
 const schema = new FieldsSchema()
+const field = new FieldFactory()
 
 schema
   .type(FieldTypeEnum.DropDownAsync)
@@ -54,6 +59,8 @@ schema
   .required(false)
   .dataService('unit.id', 10, 0)
   .build()
+
+schema.type(FieldTypeEnum.Switch).path('isAdmin').label({ en: 'Admin', ar: 'مسؤل' }).build()
 
 const result = schema.getResult()
 console.log(result)
