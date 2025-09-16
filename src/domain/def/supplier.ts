@@ -1,5 +1,4 @@
 import { Dto, DtoBase } from 'corello'
-import { reactive } from 'vue'
 import { type IValidated, v, Validator, validatorFactory } from 'tamam'
 import type { ISupplier } from '../meta'
 
@@ -8,11 +7,11 @@ const required = () =>
     required: new Validator((val: any) => {
       const isOk = val !== null && val !== undefined && val !== ''
       return { isOk, message: isOk ? '' : `validation.required.error` }
-    })
+    }, false)
   })
 
 @Dto
-@v({ vMapFactory: () => reactive({}) })
+@v()
 class Supplier extends DtoBase<Supplier> implements IValidated<ISupplier> {
   @required()
   companyName!: string

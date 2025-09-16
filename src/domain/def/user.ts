@@ -1,7 +1,8 @@
 import { Dto, DtoBase } from 'corello'
 import { reactive } from 'vue'
-import { type IValidated, v, Validator, validatorFactory } from 'tamam'
+import { type IValidated, type TValidationMap, v, Validator, validatorFactory } from 'tamam'
 import type { ICategory, IUser } from '../meta'
+import type { Human } from '../human'
 
 const required = () =>
   validatorFactory({
@@ -70,8 +71,9 @@ const password = (minlength: number, isComplex: boolean) =>
   })
 
 @Dto
-@v({ vMapFactory: () => reactive({}) })
-class User extends DtoBase<User> implements IValidated<IUser> {
+@v()
+class User extends DtoBase<IUser> implements IValidated<IUser> {
+  v!: TValidationMap<IUser, 'required' | 'password'>
   @required()
   name!: string
   @required()

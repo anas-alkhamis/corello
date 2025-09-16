@@ -1,5 +1,6 @@
-import type { FieldTypeEnum } from '../meta/enums/field-type'
-import type { IDataService, IField } from '../meta/i-field'
+import type { IDataService, IField } from "../../meta/builder/i-field"
+import type { FieldTypeEnum } from "../../meta/enums/field-type"
+
 const defaultTranslation = { en: '', ar: '' }
 class Field implements IField {
   type: FieldTypeEnum

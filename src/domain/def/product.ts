@@ -44,7 +44,7 @@ const priceValidator = () =>
   })
 
 @Dto
-@v({ vMapFactory: () => reactive({}) })
+@v()
 class Product extends DtoBase<Product> implements IValidated<IProduct> {
   @required()
   name!: string

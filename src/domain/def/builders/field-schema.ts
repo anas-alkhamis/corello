@@ -1,7 +1,8 @@
-import type { FieldTypeEnum } from '../meta/enums/field-type'
-import type { IField } from '../meta/i-field'
-import type { IFieldBuilder } from '../meta/i-field-builder'
-import type { IFieldsSchema } from '../meta/i-fields-schema'
+
+import type { IField } from '../../meta/builder/i-field'
+import type { IFieldBuilder } from '../../meta/builder/i-field-builder'
+import type { IFieldsSchema } from '../../meta/builder/i-fields-schema'
+import type { FieldTypeEnum } from '../../meta/enums/field-type'
 import { Field } from './field'
 import { FieldBuilder } from './field-builder'
 

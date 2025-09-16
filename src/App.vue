@@ -1,14 +1,20 @@
 <template>
-  <form-controller :schema="schema" v-model="model" :onSubmit :onReset />
+  <form-controller v-model="form" />
+  <form-controller v-model="form2" />
 </template>
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
-import { useUserForm } from './forms/user-form'
+import { schema as productSchema } from './forms/product-form'
+import { schema as userSchema } from './forms/user-form'
+import { useForm } from './utilities/use-form'
+import type { IProduct, IUser } from './domain/meta'
+import { Product, User } from './domain/def'
 
 const submit = (data: any) => {
   console.log(data)
 }
-const { schema, model, onSubmit, onReset } = useUserForm({ submit, validationItems: ['name', 'password'] })
+const form2 = useForm<IProduct>(Product, productSchema, { submit, validationItems: ['supplier.companyName', 'name', 'owner.groups.copyWithin'], defaultValues: { supplier: { companyName: '' } } })
+const form = useForm<IUser>(User, userSchema, { submit, validationItems: ['name', 'password'], defaultValues: { name: 'Anas' } })
 
 // const Form = defineAsyncComponent(() => import('./components/form.vue'))
 // const LoginForm = defineAsyncComponent(() => import('./components/login-form.vue'))
